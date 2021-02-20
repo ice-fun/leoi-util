@@ -30,11 +30,11 @@ public class AllowVisitorRequest {
         private boolean checkToken;
     }
 
-    public boolean anyPermission(HttpServletRequest request){
+    public boolean anyPermission(HttpServletRequest request) {
         return this.matchers.stream().filter(matcher -> !matcher.isCheckToken()).anyMatch(matcher -> matcher.path.matches(request));
     }
 
-    public boolean visitorPermission(HttpServletRequest request){
+    public boolean visitorPermission(HttpServletRequest request) {
         return this.matchers.stream().filter(VisitorRequest::isCheckToken).anyMatch(matcher -> matcher.path.matches(request));
     }
 }
