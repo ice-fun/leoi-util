@@ -21,13 +21,10 @@ import java.util.Set;
 
 /**
  * @author Li Yao Bing
- * @Company https://www.knowswift.com/
- * @Date 2021/2/20
  **/
 
-
 @Component
-public class AnnotationUtil {
+public class AnnotationUtils {
 
     @Resource
     private ResourceLoader resourceLoader;

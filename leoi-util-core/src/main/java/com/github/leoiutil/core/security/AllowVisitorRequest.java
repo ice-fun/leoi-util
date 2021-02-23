@@ -8,9 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
- * @author knowswift
- * @Company https://www.knowswift.com/
- * @Date 2020/12/31
+ * @author lyb
  **/
 
 @Getter
@@ -30,11 +28,11 @@ public class AllowVisitorRequest {
         private boolean checkToken;
     }
 
-    public boolean anyPermission(HttpServletRequest request) {
+    public boolean anyPermission(HttpServletRequest request){
         return this.matchers.stream().filter(matcher -> !matcher.isCheckToken()).anyMatch(matcher -> matcher.path.matches(request));
     }
 
-    public boolean visitorPermission(HttpServletRequest request) {
+    public boolean visitorPermission(HttpServletRequest request){
         return this.matchers.stream().filter(VisitorRequest::isCheckToken).anyMatch(matcher -> matcher.path.matches(request));
     }
 }
