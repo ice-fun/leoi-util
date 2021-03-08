@@ -4,8 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-public class IpUtil {
-    public static String getIpAddr(HttpServletRequest request) {
+public class IpUtils {
+    public static String getIp(HttpServletRequest request) {
         String ipAddress;
         try {
             ipAddress = request.getHeader("x-forwarded-for");
@@ -19,14 +19,13 @@ public class IpUtil {
                 ipAddress = request.getRemoteAddr();
                 if ("127.0.0.1".equals(ipAddress)) {
                     // 根据网卡取本机配置的IP
-                    InetAddress inet = null;
+                    InetAddress inet;
                     try {
                         inet = InetAddress.getLocalHost();
+                        ipAddress = inet.getHostAddress();
                     } catch (UnknownHostException e) {
-                        e.printStackTrace();
-
+                        return ipAddress;
                     }
-                    ipAddress = inet.getHostAddress();
                 }
             }
             // 对于通过多个代理的情况，第一个IP为客户端真实IP,多个IP按照','分割

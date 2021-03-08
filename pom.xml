@@ -7,7 +7,7 @@
     <groupId>com.github.li-yaobing</groupId>
     <artifactId>leoi-util</artifactId>
     <packaging>pom</packaging>
-    <version>1.0</version>
+    <version>1.1</version>
     <name>leoi-util</name>
 
     <description>这是一个简单的工具类</description>
@@ -41,6 +41,17 @@
             <url>https://github.com/li-yaobing</url>
         </developer>
     </developers>
+
+    <dependencies>
+        <!-- 全局单元测试 -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.1</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
 
     <build>
         <plugins>

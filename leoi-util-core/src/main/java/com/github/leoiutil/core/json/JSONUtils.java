@@ -30,8 +30,6 @@ import java.util.stream.Collectors;
  * @author Li Yao Bing
  * <p>
  * 此工具是对Jackson库API的简单封装
- * 由于Fastjson漏洞过多，此后Fastjson将会逐步去除，改用此工具类的方法
- * ObjectMapper的自定义配置参考Jackson官方，方法根据需求封装
  **/
 
 public class JSONUtils {

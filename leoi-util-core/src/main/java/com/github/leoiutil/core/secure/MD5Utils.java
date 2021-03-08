@@ -5,12 +5,18 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class MD5Utils {
-    private final static String SALT = "";
+    private static String SALT = "";
 
     private static String content;
 
+    public MD5Utils() {
+    }
 
-    public static String md5Decode32(String content) {
+    public MD5Utils(String salt) {
+        SALT = salt;
+    }
+
+    public static String md5(String content) {
         byte[] hash;
         try {
             hash = MessageDigest.getInstance("MD5").digest(content.getBytes(StandardCharsets.UTF_8));
@@ -27,11 +33,12 @@ public class MD5Utils {
         return hex.toString();
     }
 
-    public static String md5Decode32WithSalt(String content) {
-        return md5Decode32(content + SALT);
+
+    public static String md5WithSalt(String content) {
+        return md5(content + SALT);
     }
 
-    public static String md5Decode32WithSalt(String salt, String content) {
-        return md5Decode32(content + salt);
+    public static String md5WithSalt(String content, String salt) {
+        return md5(content + salt);
     }
 }
